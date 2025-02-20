@@ -17,19 +17,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: test
-        run: |
-            ls ${{ github.workspace }}
-            pwd
-            # --detection-priority=comprehensive --skip-policies 
-
       - name: Aqua code scanning (SCA,IaC and SAST)
         uses: docker://aquasec/aqua-scanner
         with:
          args: trivy fs --detection-priority comprehensive --scanners vuln --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 ./
           
         env:
-          # OVERRIDE_RUN_ID: 696969
           ENABLE_TRIVY_STDOUT: 'true'
           TRIVY_USERNAME: ${{ secrets.AQUADEV_USERNAME }}
           TRIVY_PASSWORD: ${{ secrets.AQUADEV_PASS }}
@@ -41,6 +34,8 @@ jobs:
           TRIVY_RUN_AS_PLUGIN: 'aqua'
           REACHABILITY: 'true'
           GRADLE: 'true'
+          SHOW_SUPPRESSED: 'true'
+          TRIVY_SEVERITY: 'CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN'
 
 
   # BILLY:
