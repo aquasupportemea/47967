@@ -24,6 +24,8 @@ jobs:
           
         env:
           ENABLE_TRIVY_STDOUT: 'true'
+          DEBUG: 'true'
+          TRIVY_DEBUG: 'true'
           TRIVY_USERNAME: ${{ secrets.AQUADEV_USERNAME }}
           TRIVY_PASSWORD: ${{ secrets.AQUADEV_PASS }}
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
