@@ -20,7 +20,7 @@ jobs:
       - name: Aqua code scanning (SCA,IaC and SAST)
         uses: docker://aquasec/aqua-scanner
         with:
-         args: trivy fs --gradle --detection-priority=comprehensive --skip-policies --sast --reachability --scanners misconfig,vuln,secret --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 /github/workspace
+         args: trivy fs --detection-priority comprehensive --skip-policies --scanners vuln --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 /github/workspace
           
         env:
           # OVERRIDE_RUN_ID: 696969
@@ -33,6 +33,8 @@ jobs:
           AQUA_URL: https://api.eu-1.supply-chain.cloud.aquasec.com
           CSPM_URL: https://eu-1.api.cloudsploit.com
           TRIVY_RUN_AS_PLUGIN: 'aqua'
+          REACHABILITY: 'true'
+          GRADLE: 'true'
 
 
   # BILLY:
