@@ -16,8 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - test
+
+      - name: test
         run: |
             ls ${{ github.workspace }}
             pwd
