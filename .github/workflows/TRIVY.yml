@@ -16,6 +16,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        
+      - test
+        run: |
+            ls ${{ github.workspace }}
+            pwd
 
       - name: Aqua code scanning (SCA,IaC and SAST)
         uses: docker://aquasec/aqua-scanner
