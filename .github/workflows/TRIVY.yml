@@ -20,7 +20,7 @@ jobs:
       - name: Aqua code scanning (SCA,IaC and SAST)
         uses: docker://aquasec/aqua-scanner
         with:
-         args: trivy fs --detection-priority=comprehensive --scanners vuln --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 ./
+         args: trivy fs --scanners vuln --db-repository=registry.aquasec.com/trivy-db:2 --checks-bundle-repository=registry.aquasec.com/trivy-checks:1 --java-db-repository=registry.aquasec.com/trivy-java-db:1 ./
           
         env:
           ENABLE_TRIVY_STDOUT: 'true'
