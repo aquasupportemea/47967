@@ -39,7 +39,6 @@ jobs:
           SHOW_SUPPRESSED: 'true'
           TRIVY_SEVERITY: 'CRITICAL,HIGH,MEDIUM,LOW,UNKNOWN'
 
-
   # BILLY:
     # name: BILLY
     # runs-on: ubuntu-latest
