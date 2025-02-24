@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           AQUA_URL: https://api.eu-1.supply-chain.cloud.aquasec.com
           CSPM_URL: https://eu-1.api.cloudsploit.com
-          TRIVY_RUN_AS_PLUGIN: 'aqua'
+          # TRIVY_RUN_AS_PLUGIN: 'aqua'
           REACHABILITY: 'true'
           GRADLE: 'true'
           SHOW_SUPPRESSED: 'true'
